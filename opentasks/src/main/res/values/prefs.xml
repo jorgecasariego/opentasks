@@ -4,4 +4,13 @@
     <string name="schedjoules_pref_notification_enabled"
             translatable="false">schedjoules_pref_notification_enabled</string>
 
+    <string name="schedjoules_pref_notification_sound"
+            translatable="false">schedjoules_pref_notification_sound</string>
+
+    <string name="schedjoules_pref_notification_vibrate"
+            translatable="false">schedjoules_pref_notification_vibrate</string>
+
+    <string name="schedjoules_pref_notification_lights"
+            translatable="false">schedjoules_pref_notification_lights</string>
+
 </resources>
