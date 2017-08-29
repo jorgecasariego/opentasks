@@ -25,7 +25,7 @@ import android.content.Intent;
 import android.support.v4.util.SparseArrayCompat;
 import android.text.TextUtils;
 
-import org.dmfs.provider.tasks.AuthorityUtil;
+import org.dmfs.provider.tasks.TaskAuthority;
 import org.dmfs.tasks.ManageListActivity;
 import org.dmfs.tasks.contract.TaskContract.TaskLists;
 
@@ -69,7 +69,7 @@ public abstract class Model
     {
         mContext = context;
         mAccountType = accountType;
-        mAuthority = AuthorityUtil.taskAuthority(context);
+        mAuthority = TaskAuthority.get(context);
     }
 
 

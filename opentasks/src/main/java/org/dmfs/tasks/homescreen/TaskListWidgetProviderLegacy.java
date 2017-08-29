@@ -31,7 +31,7 @@ import android.os.Build;
 import android.text.format.Time;
 import android.widget.RemoteViews;
 
-import org.dmfs.provider.tasks.AuthorityUtil;
+import org.dmfs.provider.tasks.TaskAuthority;
 import org.dmfs.tasks.R;
 import org.dmfs.tasks.TaskListActivity;
 import org.dmfs.tasks.contract.TaskContract;
@@ -90,7 +90,7 @@ public class TaskListWidgetProviderLegacy extends AppWidgetProvider
     @SuppressWarnings("deprecation")
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
     {
-        String authority = AuthorityUtil.taskAuthority(context);
+        String authority = TaskAuthority.get(context);
 
         RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.task_list_widget);
         widget.removeAllViews(android.R.id.list);

@@ -28,7 +28,7 @@ import android.view.View.OnClickListener;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-import org.dmfs.provider.tasks.AuthorityUtil;
+import org.dmfs.provider.tasks.TaskAuthority;
 import org.dmfs.tasks.QuickAddDialogFragment;
 import org.dmfs.tasks.R;
 import org.dmfs.tasks.contract.TaskContract.Instances;
@@ -263,7 +263,7 @@ public class ByPriority extends AbstractGroupingFactory
                 Integer tag = (Integer) v.getTag();
                 if (tag != null)
                 {
-                    ContentSet content = new ContentSet(Tasks.getContentUri(AuthorityUtil.taskAuthority(v.getContext())));
+                    ContentSet content = new ContentSet(Tasks.getContentUri(TaskAuthority.get(v.getContext())));
                     TaskFieldAdapters.PRIORITY.set(content, tag);
                     QuickAddDialogFragment.newInstance(content).show(((FragmentActivity) v.getContext()).getSupportFragmentManager(), null);
                 }

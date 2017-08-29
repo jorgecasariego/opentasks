@@ -32,7 +32,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import org.dmfs.provider.tasks.AuthorityUtil;
+import org.dmfs.provider.tasks.TaskAuthority;
 import org.dmfs.tasks.EditTaskActivity;
 import org.dmfs.tasks.R;
 import org.dmfs.tasks.TaskListActivity;
@@ -83,7 +83,7 @@ public class TaskListWidgetProvider extends AppWidgetProvider
             ArrayList<Long> widgetLists = WidgetConfigurationDatabaseHelper.loadTaskLists(db, widgetId);
             db.close();
             ArrayList<Long> writableLists = new ArrayList<>();
-            String authority = AuthorityUtil.taskAuthority(context);
+            String authority = TaskAuthority.get(context);
             if (!widgetLists.isEmpty())
             {
                 Cursor cursor = context.getContentResolver().query(

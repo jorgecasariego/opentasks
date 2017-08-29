@@ -31,7 +31,7 @@ import android.text.format.Time;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import org.dmfs.provider.tasks.AuthorityUtil;
+import org.dmfs.provider.tasks.TaskAuthority;
 import org.dmfs.tasks.R;
 import org.dmfs.tasks.contract.TaskContract;
 import org.dmfs.tasks.contract.TaskContract.Instances;
@@ -141,7 +141,7 @@ public class TaskListWidgetUpdaterService extends RemoteViewsService
             mResources = context.getResources();
             mDueDateFormatter = new DateFormatter(context);
             new TimeChangeObserver(context, this);
-            mAuthority = AuthorityUtil.taskAuthority(context);
+            mAuthority = TaskAuthority.get(context);
         }
 
 

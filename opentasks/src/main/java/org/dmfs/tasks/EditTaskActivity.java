@@ -25,7 +25,7 @@ import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.dmfs.provider.tasks.AuthorityUtil;
+import org.dmfs.provider.tasks.TaskAuthority;
 import org.dmfs.tasks.contract.TaskContract.Tasks;
 import org.dmfs.tasks.model.ContentSet;
 import org.dmfs.tasks.utils.ActionBarActivity;
@@ -62,7 +62,7 @@ public class EditTaskActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_editor);
 
-        mAuthority = AuthorityUtil.taskAuthority(this);
+        mAuthority = TaskAuthority.get(this);
 
         if (android.os.Build.VERSION.SDK_INT >= 11)
         {

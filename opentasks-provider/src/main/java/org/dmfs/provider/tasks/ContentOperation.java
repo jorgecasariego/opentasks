@@ -339,7 +339,7 @@ public enum ContentOperation
      */
     public void fire(Context context, ContentValues values)
     {
-        context.getContentResolver().update(uri(AuthorityUtil.taskAuthority(context)), values == null ? new ContentValues() : values, null, null);
+        context.getContentResolver().update(uri(TaskAuthority.get(context)), values == null ? new ContentValues() : values, null, null);
     }
 
 

@@ -32,7 +32,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.dmfs.provider.tasks.AuthorityUtil;
+import org.dmfs.provider.tasks.TaskAuthority;
 import org.dmfs.tasks.R;
 import org.dmfs.tasks.contract.TaskContract;
 import org.dmfs.tasks.contract.TaskContract.TaskLists;
@@ -77,7 +77,7 @@ public class TaskListSelectionFragment extends ListFragment implements LoaderMan
         super.onAttach(activity);
         mActivity = activity;
         mListener = (OnSelectionListener) activity;
-        mAuthority = AuthorityUtil.taskAuthority(activity);
+        mAuthority = TaskAuthority.get(activity);
     }
 
 

@@ -29,7 +29,7 @@ import android.content.SyncAdapterType;
 import android.text.TextUtils;
 import android.util.Log;
 
-import org.dmfs.provider.tasks.AuthorityUtil;
+import org.dmfs.provider.tasks.TaskAuthority;
 import org.dmfs.tasks.contract.TaskContract;
 import org.dmfs.tasks.utils.AsyncModelLoader;
 import org.dmfs.tasks.utils.OnModelLoadedListener;
@@ -124,7 +124,7 @@ public final class Sources extends BroadcastReceiver implements OnAccountsUpdate
     {
         mContext = context.getApplicationContext();
 
-        mAuthority = AuthorityUtil.taskAuthority(context);
+        mAuthority = TaskAuthority.get(context);
 
         // register to receive package changes
         IntentFilter filter = new IntentFilter(Intent.ACTION_PACKAGE_ADDED);

@@ -47,7 +47,7 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.text.format.Time;
 import android.util.Log;
 
-import org.dmfs.provider.tasks.AuthorityUtil;
+import org.dmfs.provider.tasks.TaskAuthority;
 import org.dmfs.rfc5545.DateTime;
 import org.dmfs.rfc5545.Duration;
 import org.dmfs.tasks.R;
@@ -120,7 +120,7 @@ public class NotificationUpdaterService extends Service
     @Override
     public void onCreate()
     {
-        mAuthority = AuthorityUtil.taskAuthority(this);
+        mAuthority = TaskAuthority.get(this);
         super.onCreate();
         updateNextDayAlarm();
     }
@@ -310,7 +310,7 @@ public class NotificationUpdaterService extends Service
         ArrayList<ContentSet> tasksToPin = new ArrayList<ContentSet>(20);
 
         final ContentResolver resolver = this.getContentResolver();
-        final Uri contentUri = Tasks.getContentUri(AuthorityUtil.taskAuthority(this));
+        final Uri contentUri = Tasks.getContentUri(TaskAuthority.get(this));
         final Cursor cursor = resolver.query(contentUri, new String[] {
                         Tasks._ID, Tasks.TITLE, Tasks.DESCRIPTION, Tasks.DTSTART, Tasks.DUE, Tasks.IS_ALLDAY,
                         Tasks.STATUS, Tasks.PRIORITY, Tasks.IS_CLOSED }, Tasks.PINNED + "= 1", null,

@@ -50,7 +50,7 @@ import android.widget.Toast;
 import org.dmfs.android.retentionmagic.SupportFragment;
 import org.dmfs.android.retentionmagic.annotations.Parameter;
 import org.dmfs.android.retentionmagic.annotations.Retain;
-import org.dmfs.provider.tasks.AuthorityUtil;
+import org.dmfs.provider.tasks.TaskAuthority;
 import org.dmfs.tasks.contract.TaskContract;
 import org.dmfs.tasks.contract.TaskContract.TaskLists;
 import org.dmfs.tasks.contract.TaskContract.Tasks;
@@ -208,7 +208,7 @@ public class EditTaskFragment extends SupportFragment implements LoaderManager.L
     public void onAttach(Activity activity)
     {
         super.onAttach(activity);
-        mAuthority = AuthorityUtil.taskAuthority(activity);
+        mAuthority = TaskAuthority.get(activity);
         Bundle bundle = getArguments();
 
         // check for supplied task information from intent
